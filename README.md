@@ -3,6 +3,8 @@
 ## Project setup
 ```
 npm install
+npm install -g @vue/cli
+npm install vue bootstrap-vue bootstrap
 ```
 
 ### Compiles and hot-reloads for development
