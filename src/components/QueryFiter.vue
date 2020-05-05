@@ -1,20 +1,23 @@
 <template>
-    <b-card title="Фильтр запросов" class="text-center">
+    <b-card title="Фильтр запросов" class="text-center bg-dark text-white" >
         <b-container>
             <b-row>
                 <b-col>
-                    <b-form-select v-model="locate" :options="tasks"/>
+                    <label>Заявитель</label>
+                    <b-form-select/>
                 </b-col>
-
                 <b-col>
+                    <label>Исполнитель</label>
                     <b-form-select/>
                 </b-col>
             </b-row>
             <b-row>
                 <b-col>
+                    <label>Кабинет</label>
                     <b-form-select/>
                 </b-col>
                 <b-col>
+                    <label>Дата подачи заявки</label>
                     <b-input-group>
                         <b-form-input
                                 v-model="Calendar"

@@ -1,6 +1,5 @@
 <template>
-    <div>
-        <b-container>
+    <div class="bg-dark">
         <b-row>
             <b-col>
     <navbar/>
@@ -11,7 +10,6 @@
     <QueryFiter/>
             </b-col>
         </b-row>
-        </b-container>
         <RequestBoardSucces/>
     </div>
 </template>

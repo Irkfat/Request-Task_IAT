@@ -1,7 +1,20 @@
 <template>
-    <div>
-    <navbar/>
-    <QueryFiter/>
+    <div class="bg-dark" >
+        <b-row>
+            <b-col>
+                <navbar/>
+            </b-col>
+        </b-row>
+        <b-row>
+            <b-col>
+                <QueryFiter/>
+            </b-col>
+        </b-row>
+        <b-row>
+            <b-col>
+
+            </b-col>
+        </b-row>
     </div>
 </template>
 

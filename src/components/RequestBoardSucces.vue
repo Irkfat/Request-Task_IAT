@@ -1,4 +1,4 @@
-<template>
+<template class="">
     <b-row class="justify-center">
         <b-col lg="3" v-for="task in tasks" :key="task.id" style="display: flex; flex-wrap: wrap; justify-content: center;" class="justify-center" >
             <b-card v-if="task.status === '1'" bg-variant="success">
