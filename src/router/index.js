@@ -16,18 +16,27 @@ const routes = [
   {
     path: '',
     name: 'Login',
-    component: Login
+    component: Login,
+    meta:{
+      guest:true
+    }
 
   },
   {
     path:'/Arhive',
     name: 'Arhive',
     component: Arhive,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path:'/main',
     name: 'Main',
-    component: Main
+    component: Main,
+    /*meta: {
+      requiresAuth: true
+    }*/
   }
   // {
   //   path: '/about',

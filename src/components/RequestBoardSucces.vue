@@ -4,6 +4,9 @@
             <b-card v-if="task.status === '1'" bg-variant="success">
                 <template v-slot:header >
                     <span class="mb-2">Расположение:{{task.loc}}</span>
+                    <b-button class="float-right" title="Delete">
+                        <b-icon icon="x-square-fill" variant="danger" scale="0" class="align-center"></b-icon>
+                    </b-button>
                     <br>
                     <span>Выполняющий:{{task.Perfoming_login}}</span>
                 </template>

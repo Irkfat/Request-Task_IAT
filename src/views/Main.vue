@@ -10,6 +10,7 @@
                 <QueryFiter/>
             </b-col>
         </b-row>
+        <AddTask/>
         <b-row>
             <b-col>
 
@@ -22,10 +23,11 @@
     //import ComponentTask from "../components/ComponentTask";
     import navbar from "../components/navbar";
     import QueryFiter from "../components/QueryFiter";
+    import AddTask from "../components/AddTask";
 
     export default {
         name: "Main",
-        components: { navbar, QueryFiter},
+        components: { navbar, QueryFiter, AddTask},
         data(){
             return{
 

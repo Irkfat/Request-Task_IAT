@@ -4,7 +4,7 @@
             <b-row>
                 <b-col>
                     <label>Заявитель</label>
-                    <b-form-select/>
+                    <b-form-select name="applicant" id="applicant" :options="applicantOptions"/>
                 </b-col>
                 <b-col>
                     <label>Исполнитель</label>
@@ -44,8 +44,52 @@
 </template>
 
 <script>
+    import axios from 'axios'
     export default {
-        name: "QueryFiter"
+        name: "QueryFiter",
+        data(){
+            return{
+                applicant:[],
+                applicantOptions:[],
+            };
+        },
+        created() {
+          this.setapplicantOptions()
+        },
+        methods:{
+            setapplicantOptions: function () {
+                axios
+                .get('http://localhost:3000/users')
+                .then(response => {
+                    this.applicantOptions = response.data
+                    for(var i = 0; i < this.applicant.length; i++) {
+                        var options = [];
+                        for (var key in this.applicant[i]) {
+                            if (key == "id") {
+                                options["value"] = this.applicantOptions[i][key]
+                            } else if (key == "name") {
+                                options["text"] = this.applicantOptions[i][key]
+                            }
+                        }
+                        this.applicantOptions.push(Object.assign({}, options))
+                    }
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+
+            }
+        }
+        /*mounted() {
+            axios({
+                method: 'get',
+                url:'http://localhost:3000/users',
+                responseType:'JSON'
+            })
+            .then(function (response) {
+                console.log(response)
+            })
+        }*/
     }
 </script>
 
