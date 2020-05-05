@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-dark" >
+    <div  >
         <b-row>
             <b-col>
                 <navbar/>

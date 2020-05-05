@@ -1,5 +1,5 @@
 <template>
-   <b-container>
+   <b-container class="">
        <b-card header="Войти в систему" class="mb-2">
         <b-row class="justify-center">
        <b-form @submit="onsubmit" v-if="show">

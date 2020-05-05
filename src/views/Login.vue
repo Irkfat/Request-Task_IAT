@@ -1,5 +1,7 @@
 <template>
+    <div class="bg-dark">
     <ComponentLogin/>
+    </div>
 </template>
 
 <script>
