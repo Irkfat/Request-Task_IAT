@@ -12,7 +12,12 @@
 
 <script>
     export default {
-        name: "AddTask"
+        name: "AddTask",
+        methods:{
+            callback (data) {
+                console.debug(data)
+            }
+        }
     }
 </script>
 

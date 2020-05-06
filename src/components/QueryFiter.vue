@@ -1,14 +1,14 @@
 <template>
-    <b-card title="Фильтр запросов" class="text-center bg-dark text-white" >
+    <b-card title="Фильтр запросов" class="text-center bg-dark text-white">
         <b-container>
             <b-row>
                 <b-col>
                     <label>Заявитель</label>
-                    <b-form-select name="applicant" id="applicant" :options="applicantOptions"/>
+                    <b-form-select name="applicant" id="applicant" :options="applicant"/>
                 </b-col>
                 <b-col>
-                    <label>Исполнитель</label>
-                    <b-form-select/>
+                    <label >Исполнитель</label>
+                    <b-form-select name="executor" id="executor" :options="executor"/>
                 </b-col>
             </b-row>
             <b-row>
@@ -23,7 +23,7 @@
                                 v-model="Calendar"
                                 type="text"
                                 placeholder="YYYY-MM-DD"
-                                avtocomplete = "off"
+                                avtocomplete="off"
                         >
                         </b-form-input>
                         <b-input-group-append>
@@ -45,38 +45,39 @@
 
 <script>
     import axios from 'axios'
+
     export default {
         name: "QueryFiter",
-        data(){
-            return{
-                applicant:[],
-                applicantOptions:[],
+        data() {
+            return {
+                applicant: [],
+                users: [],
+                executor: [],
             };
         },
         created() {
-          this.setapplicantOptions()
+            this.setapplicantOptions()
         },
-        methods:{
+        methods: {
             setapplicantOptions: function () {
                 axios
-                .get('http://localhost:3000/users')
-                .then(response => {
-                    this.applicantOptions = response.data
-                    for(var i = 0; i < this.applicant.length; i++) {
-                        var options = [];
-                        for (var key in this.applicant[i]) {
-                            if (key == "id") {
-                                options["value"] = this.applicantOptions[i][key]
-                            } else if (key == "name") {
-                                options["text"] = this.applicantOptions[i][key]
-                            }
-                        }
-                        this.applicantOptions.push(Object.assign({}, options))
-                    }
-                })
-                .catch(err => {
-                    console.log(err)
-                })
+                    .get('http://localhost:3000/users')
+                    .then(response => {
+                        this.applicant = response.data.filter((userApplicant) =>{
+                            return parseInt(userApplicant.role) === 1;
+                        }).map((userApplicant) => {
+                            return {value: userApplicant.id, text: userApplicant.name};
+                        });
+                        this.executor = response.data.filter((user) =>{
+                            return parseInt(user.role)=== 2;
+                        }).map((user)=> {
+                            return {value: user.id, text: user.name}
+                        })
+
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
 
             }
         }
