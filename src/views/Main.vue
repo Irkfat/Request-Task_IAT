@@ -29,11 +29,9 @@
         name: "Main",
         components: { navbar, QueryFiter, AddTask},
         data(){
-            return{
 
-            }
+        },
 
-        }
     }
 
 </script>

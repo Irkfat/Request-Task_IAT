@@ -44,7 +44,8 @@
 </template>
 
 <script>
-    import axios from 'axios'
+
+    import axios from "axios";
 
     export default {
         name: "QueryFiter",
@@ -53,6 +54,7 @@
                 applicant: [],
                 users: [],
                 executor: [],
+                tickets:[],
             };
         },
         created() {
@@ -80,17 +82,15 @@
                     })
 
             }
+
+
+        },
+        mounted() {
+            axios
+            .get('http://localhost:3000/ticket')
+            .then(response=>(this.tickets = response))
+            .catch(error => console.log(error))
         }
-        /*mounted() {
-            axios({
-                method: 'get',
-                url:'http://localhost:3000/users',
-                responseType:'JSON'
-            })
-            .then(function (response) {
-                console.log(response)
-            })
-        }*/
     }
 </script>
 
